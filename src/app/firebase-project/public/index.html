@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento com ESP32</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+        apiKey: "AIzaSyDWtHN_PCBUulYWw3SCFAIsai0-P5iTW1o",
+        authDomain: "esp32-temp-hum-53114.firebaseapp.com",
+        databaseURL: "https://esp32-temp-hum-53114-default-rtdb.firebaseio.com",
+        projectId: "esp32-temp-hum-53114",
+        storageBucket: "esp32-temp-hum-53114.appspot.com",
+        messagingSenderId: "441355878379",
+        appId: "1:441355878379:web:3cbff2daaf2a611c8463ae"
+        };
+        // Inicializa a relação com o Firebase
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+    </script>
+    <script src="app.js" defer></script>
+
+    <style>
+        html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}
+        body { margin-top: 50px; background: #2A6BB2; color: #ffffff; font-weight: bold; text-align: center; font-family: "Trebuchet MS", Arial; margin-left: auto; margin-right: auto; } h1 { margin: 50px auto 30px; }
+        p { font-size: 24px; margin-bottom: 10px; }
+        img { display: block; margin: 0 auto }
+        @media screen and (max-width: 600px) {
+            img { display: block; margin: 0 auto; width: 80%;}
+        }
+        .slider { width: 300px; }
+    </style>
+
+</head>
+<body>
+    <h1>Dados de Ambiente</h1>
+    <p>Temperatura: <span id="reading-temperature"></span>C</p>
+    <p>Umidade: <span id="reading-humidity"></span>%</p>
+
+    <p>Posicao do motor: <span id="servo-pos"></span></p>
+    <input type="range" min="0" max="180" class="slider" id="servo-slider" onchange="updateServoPosition(this.value)">
+    <img src="https://celulaiot.ufc.br/wp-content/themes/celulaiot-tema-wordpress/images/logo-white-compact.svg" width="640" height="480"></img>        
+</body>
+</html>
+      
+  
+            
